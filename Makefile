@@ -1,13 +1,16 @@
-test: format-test import-test types-test unit-test
+test: test-format test-import test-lint test-types test-unit
 
-format-test:
+test-format:
 	@poetry run black --check src
 
-import-test:
+test-import:
 	@poetry run isort --check src
 
-types-test:
+test-lint:
+	@poetry run flake8 src
+
+test-types:
 	@poetry run mypy --strict src
 
-unit-test:
+test-unit:
 	@poetry run pytest tests
