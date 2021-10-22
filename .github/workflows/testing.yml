@@ -44,4 +44,4 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/setup_python
       - name: Run unit tests
-        run: make test-types
+        run: make test-unit
