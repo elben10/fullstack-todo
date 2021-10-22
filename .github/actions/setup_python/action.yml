@@ -7,8 +7,8 @@ runs:
       shell: bash
       run: |
         curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
-        poetry config virtualenvs.create false
         echo "$HOME/.poetry/bin" >> $GITHUB_PATH
+        poetry config virtualenvs.create false
     - name: Install dependencies
       shell: bash
       run: |
