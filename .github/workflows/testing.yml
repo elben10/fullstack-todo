@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/actions/composite_setup_python.yml
+      - uses: ./.github/actions/setup_python
       - name: Test code formatting
         run: make test-format
   import:
@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/actions/composite_setup_python.yml
+      - uses: ./.github/actions/setup_python
       - name: Check import formatting
         run: make test-import
   lint:
@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/actions/composite_setup_python.yml
+      - uses: ./.github/actions/setup_python
       - name: Check code linting
         run: make test-lint
   types:
@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/actions/composite_setup_python.yml
+      - uses: ./.github/actions/setup_python
       - name: Check type annotations
         run: make test-types
   unit:
@@ -42,6 +42,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/actions/composite_setup_python.yml
+      - uses: ./.github/actions/setup_python
       - name: Run unit tests
         run: make test-types
