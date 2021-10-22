@@ -1,0 +1,10 @@
+name: "Setup python dependencies"
+description: "Install poetry and python dependencies"
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/setup-python@v2
+    - name: Install dependencies
+      run: |
+        poetry config virtualenvs.create false
+        poetry install
