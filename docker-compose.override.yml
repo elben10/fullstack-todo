@@ -14,3 +14,10 @@ services:
       <<: *healthcheck_defaults
     ports:
       - 80:80
+  frontend:
+    build:
+      dockerfile: docker/frontend/Dockerfile.dev
+    ports:
+      - 3000:80
+    volumes: 
+      - .:/src/

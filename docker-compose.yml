@@ -6,3 +6,12 @@ services:
       dockerfile: docker/api/Dockerfile
       args:
         VERSION: 3.8-slim
+
+  frontend:
+    image: frontend
+    build:
+      context: .
+      dockerfile: docker/frontend/Dockerfile
+      args:
+        NODE_VERSION: 14
+        NGINX_VERSION: 1.21

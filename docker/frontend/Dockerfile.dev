@@ -1,0 +1,15 @@
+ARG NODE_VERSION
+
+FROM node:${NODE_VERSION} as requirements-stage
+
+WORKDIR /src
+
+COPY ./package.json ./package-lock.json* /src/
+
+RUN yarn install
+
+COPY . /src
+
+ENV PORT=80
+
+CMD ["yarn", "run", "start"]
