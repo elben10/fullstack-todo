@@ -1,0 +1,26 @@
+ARG VERSION
+
+FROM python:${VERSION}
+
+WORKDIR /src
+
+RUN pip install poetry && \
+    poetry config virtualenvs.create false
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+    curl \
+    && apt-get autoremove -yqq --purge \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+    
+COPY ./pyproject.toml ./poetry.lock* /src/
+
+RUN mkdir -p src/fullstack_todo && \
+    touch src/fullstack_todo/__init__.py
+
+RUN poetry install
+
+COPY . /src
+
+CMD ["uvicorn", "fullstack_todo.api:app", "--reload", "--host", "0.0.0.0", "--port", "80"]

@@ -1,3 +1,9 @@
+dev:
+	docker-compose up
+
+docker-build:
+	docker compose -f docker-compose.yml build
+
 test: test-format test-import test-lint test-types test-unit
 
 test-format:
