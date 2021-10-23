@@ -7,6 +7,9 @@ packages = [{include = "fullstack_todo", from = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+fastapi = "^0.70.0"
+pydantic = "^1.8.2"
+uvicorn = "^0.15.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"
@@ -14,6 +17,7 @@ black = "^21.9b0"
 mypy = "^0.910"
 isort = "^5.9.3"
 flake8 = "^4.0.1"
+requests = "^2.26.0"
 
 [tool.isort]
 multi_line_output = 3
