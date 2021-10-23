@@ -1,0 +1,8 @@
+services:
+  api:
+    image: api
+    build:
+      context: .
+      dockerfile: docker/api/Dockerfile
+      args:
+        VERSION: 3.8-slim

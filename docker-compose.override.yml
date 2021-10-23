@@ -1,0 +1,16 @@
+x-healthcheck-defaults: &healthcheck_defaults
+  interval: 20s
+  timeout: 5s
+  retries: 5
+
+services:
+  api:
+    build:
+      dockerfile: docker/api/Dockerfile.dev
+    volumes: 
+      - .:/src/
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost/health"]
+      <<: *healthcheck_defaults
+    ports:
+      - 80:80
