@@ -20,3 +20,4 @@ test-types:
 
 test-unit:
 	@poetry run pytest tests
+	@yarn run test - --watchAll=false
