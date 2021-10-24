@@ -18,6 +18,10 @@ mypy = "^0.910"
 isort = "^5.9.3"
 flake8 = "^4.0.1"
 requests = "^2.26.0"
+pytest-cov = "^3.0.0"
+
+[tool.poetry.plugins."fullstack_todo.plugins"]
+"document" = "fullstack_todo.plugins.bases.document:DocumentBase"
 
 [tool.isort]
 multi_line_output = 3

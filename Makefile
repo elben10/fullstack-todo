@@ -19,5 +19,5 @@ test-types:
 	@poetry run mypy --strict src tests
 
 test-unit:
-	@poetry run pytest tests
+	@poetry run pytest tests --cov src --cov-report html
 	@yarn run test - --watchAll=false
